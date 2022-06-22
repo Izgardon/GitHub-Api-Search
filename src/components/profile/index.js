@@ -1,5 +1,9 @@
 import React from "react";
 
 export const Profile = () => {
-  return <></>;
+  return (
+    <>
+      <h4>Profile</h4>
+    </>
+  );
 };

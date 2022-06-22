@@ -1,5 +1,9 @@
 import React from "react";
 
 export const SearchForm = () => {
-  return <></>;
+  return (
+    <>
+      <h4>SearchForm</h4>
+    </>
+  );
 };
