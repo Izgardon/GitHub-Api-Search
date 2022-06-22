@@ -1,13 +1,14 @@
 import React from "react";
+import { Repository } from "../Repository";
 
-export function repositories({ data }) {
+export function Repositories({ data }) {
   return (
     <>
-      <h4>Your Repos</h4>
-      <div className="repos">
-        {data.map((repo) => {
-          <components.repository data={repo} />;
-        })}
+      <h4 className="grid-title">Your Repos</h4>
+      <div className="grid">
+        {data.map((repo) => (
+          <Repository data={repo} />
+        ))}
       </div>
     </>
   );

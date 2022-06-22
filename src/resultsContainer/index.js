@@ -1,11 +1,13 @@
 import React from "react";
-import { components } from "../components";
+import { Profile, Repositories } from "../components";
 
-export function resultsContainer({ data }) {
+function ResultsContainer({ data }) {
   return (
     <>
-      <components.profile data={data} />
-      <components.repositories data={data} />
+      <Profile data={data} />
+      <Repositories data={data} />
     </>
   );
 }
+
+export default ResultsContainer;

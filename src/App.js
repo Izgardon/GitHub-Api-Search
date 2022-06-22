@@ -1,10 +1,10 @@
 import "./App.css";
-import { searchForm } from "./components";
+import { SearchForm } from "./components";
 
 function App() {
   return (
     <main>
-      <searchForm />
+      <SearchForm />
     </main>
   );
 }
