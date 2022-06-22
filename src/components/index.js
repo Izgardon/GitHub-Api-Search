@@ -1,4 +1,4 @@
-export { Profile } from "./Profile";
-export { Repository } from "./Repository";
-export { Repositories } from "./Repositories";
-export { SearchForm } from "./SearchForm";
+export { profile } from "./profile";
+export { repository } from "./repository";
+export { repositories } from "./repositories";
+export { searchForm } from "./searchForm";
