@@ -55,7 +55,12 @@ export const SearchForm = () => {
           value={usernameInput}
           onChange={updateInput}
         />
-        <input type="submit" aria-label="Form submit button" value="Search" />
+        <input
+          id="submit"
+          type="submit"
+          aria-label="Form submit button"
+          value="Search"
+        />
       </form>
 
       {error ? (
