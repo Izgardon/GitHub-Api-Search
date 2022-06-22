@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
-import ResultsContainer from "../../resultsContainer";
+import ResultsContainer from "../../ResultsContainer";
 import axios from "axios";
-
-let test1 = "";
 
 export const SearchForm = () => {
   // Controlled Form Logic
@@ -10,11 +8,11 @@ export const SearchForm = () => {
   const [username, setUsername] = useState("");
   //Input State
   const [usernameInput, setUsernameInput] = useState("");
-  const [data, setData] = useState([
+  const [repoData, setRepoData] = useState([
     { owner: { login: "Loading...", avatar_url: "" } },
   ]);
-  const [error, setError] = useState("");
-  const [dataRecieved, setDataRecieved] = useState(true);
+  const [error, setError] = useState(false);
+  const [dataRecieved, setDataRecieved] = useState(false);
 
   const handleSubmitForm = (e) => {
     e.preventDefault();
@@ -26,26 +24,24 @@ export const SearchForm = () => {
 
   useEffect(() => {
     const getGitHub = async (username) => {
-      if (username) {
-        try {
+      setError(false);
+
+      try {
+        if (username) {
           const { data } = await axios.get(
             `https://api.github.com/users/${username}/repos`
           );
-          // let data = test;
-          console.log(data);
-          setData(data);
-        } catch (err) {
-          setError(err);
+
+          setRepoData(data);
+          setDataRecieved(true);
         }
+      } catch (err) {
+        setDataRecieved(false);
+        setError(err);
       }
     };
     getGitHub(username);
   }, [username]);
-  // console.log(data);
-  // useEffect(() => {
-  //   setData(test);
-  // }, []);
-  // console.log(data);
 
   return (
     <div className="search">
@@ -61,21 +57,18 @@ export const SearchForm = () => {
         />
         <input type="submit" aria-label="Form submit button" value="Search" />
       </form>
-      {error ? (
-        (document.querySelector(".message").textContent =
-          "Nobody exists with that name")
-      ) : (
-        <div>
-          {dataRecieved ? (
-            <ResultsContainer data={data} />
-          ) : (
-            (document.querySelector(".message").textContent =
-              "You need to search for someone!")
-          )}
-        </div>
-      )}
 
-      <div className="message"></div>
+      {error ? (
+        <p>This username does not exist</p>
+      ) : (
+        <>
+          {dataRecieved ? (
+            <ResultsContainer data={repoData} />
+          ) : (
+            <p>You need to search for someone!</p>
+          )}
+        </>
+      )}
     </div>
   );
 };
