@@ -21,7 +21,7 @@ export const SearchForm = () => {
   };
 
   const updateInput = (e) => setUsernameInput(e.target.value);
-
+  //Tips on data handling pls  :D
   useEffect(() => {
     const getGitHub = async (username) => {
       setError(false);
