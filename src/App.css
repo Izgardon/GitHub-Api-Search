@@ -28,10 +28,30 @@ body {
   margin-bottom: 5rem;
 }
 
+#username {
+  border-radius: 10px;
+  padding-left: 0.5rem;
+}
+
+#submit {
+  border-radius: 5px;
+  padding: 0.25rem;
+  padding-inline: 0.5rem;
+  cursor: pointer;
+}
+
 .grid-item {
   border: 1px solid black;
   padding: 1rem;
   height: 250px;
+  background-color: rgb(231, 231, 231);
+  color: rgb(36, 36, 36);
+  border-radius: 20px;
+  box-shadow: 0 4px 4px rgb(118, 118, 118);
+}
+
+a {
+  color: rgb(32, 32, 32);
 }
 
 .profile {
@@ -51,4 +71,9 @@ body {
 
 label {
   margin-right: 1rem;
+}
+
+body {
+  background-color: rgb(39, 38, 38);
+  color: rgb(188, 186, 186);
 }

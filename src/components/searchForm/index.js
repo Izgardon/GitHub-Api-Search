@@ -21,7 +21,7 @@ export const SearchForm = () => {
   };
 
   const updateInput = (e) => setUsernameInput(e.target.value);
-
+  //Tips on data handling pls  :D
   useEffect(() => {
     const getGitHub = async (username) => {
       setError(false);
@@ -55,7 +55,12 @@ export const SearchForm = () => {
           value={usernameInput}
           onChange={updateInput}
         />
-        <input type="submit" aria-label="Form submit button" value="Search" />
+        <input
+          id="submit"
+          type="submit"
+          aria-label="Form submit button"
+          value="Search"
+        />
       </form>
 
       {error ? (
